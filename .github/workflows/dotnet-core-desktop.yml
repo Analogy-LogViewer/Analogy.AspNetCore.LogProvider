@@ -18,7 +18,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: Analogy.AspNetCore.LogProvider.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Solution_Name: Analogy.LogViewer.Serilog.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: Analogy.LogViewer.Serilog.UnitTests\Analogy.LogViewer.Serilog.UnitTests.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
      
     steps:
     - name: Checkout
@@ -47,13 +48,18 @@ jobs:
       run: msbuild $env:Solution_Name /t:Rebuild /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
 
     # Publish Artifacts 
     - name: 'Publish Artifacts'   
       uses: actions/upload-artifact@v2
       with:
        name: 'artifactory'
-       path: ./Analogy.AspNetCore.LogProvider\bin/${{ matrix.configuration }}
+       path: |
+        ./Analogy.LogViewer.Serilog/bin/${{ matrix.configuration }}
+        ./Analogy.LogViewer.Serilog.Sinks/bin/${{ matrix.configuration }}
         
   push-nuget:
     name: 'Push NuGet Packages'
@@ -66,7 +72,10 @@ jobs:
           name: 'artifactory'
       - name: 'Dotnet NuGet Push'
         run: |
-          Get-ChildItem .\artifactory\Analogy.AspNetCore.LogProvider\bin\Release -Filter *.nupkg |
+          Get-ChildItem .\artifactory\Analogy.LogViewer.Serilog\bin\Release -Filter *.nupkg |
           Where-Object { !$_.Name.Contains('preview') } |
           ForEach-Object { dotnet nuget push $_ --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}} }
+          Get-ChildItem .\artifactory\Analogy.LogViewer.Serilog.Sinks\bin\Release -Filter *.nupkg |
+          Where-Object { !$_.Name.Contains('preview') } |
+          ForEach-Object { dotnet nuget push $_ --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{secrets.NUGET_SINKS_API_KEY}} }
         shell: pwsh
