@@ -12,12 +12,6 @@
     <img src="https://img.shields.io/github/license/Analogy-LogViewer/Analogy.AspNetCore.LogProvider" img alt="License"/>
 </a>
  [![Nuget](https://img.shields.io/nuget/v/Analogy.AspNetCore.LogProvider)](https://www.nuget.org/packages/Analogy.AspNetCore.LogProvider/)
-<a href="https://github.com/Analogy-LogViewer/Analogy.AspNetCore.LogProvider/releases">
-    <img src="https://img.shields.io/github/v/release/Analogy-LogViewer/Analogy.AspNetCore.LogProvider" img alt="Latest Release"/>
-</a>
-<a href="https://github.com/Analogy-LogViewer/Analogy.AspNetCore.LogProvider/compare/V0.1.0...master">
-    <img src="https://img.shields.io/github/commits-since/Analogy-LogViewer/Analogy.AspNetCore.LogProvider/latest" img alt="Commits Since Latest Release"/>
-</a>
 </p>
 
 Custom logging provider in Asp.Net Core that write logs to Analogy Log Server
