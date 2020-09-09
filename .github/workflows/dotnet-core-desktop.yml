@@ -53,8 +53,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
        name: 'artifactory'
-       path: |
-        ./Analogy.AspNetCore.LogProvider\bin/${{ matrix.configuration }}
+       path: ./Analogy.AspNetCore.LogProvider\bin/${{ matrix.configuration }}
         
   push-nuget:
     name: 'Push NuGet Packages'
