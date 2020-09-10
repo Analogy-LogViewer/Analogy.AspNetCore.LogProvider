@@ -20,7 +20,7 @@ Custom logging provider in Asp.Net Core that write logs to Analogy Log Server
 
 ## Usage
 
-Add Nuget package [Analogy.AspNetCore.LogProvider](Analogy.AspNetCore.LogProvider) and then add to the Configure method the following in te Startup.cs
+Add Nuget package [Analogy.AspNetCore.LogProvider](https://www.nuget.org/packages/Analogy.AspNetCore.LogProvider/) and then add to the Configure method the following in te Startup.cs
 
 ```csharp
 
