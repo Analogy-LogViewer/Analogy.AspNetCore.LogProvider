@@ -24,15 +24,15 @@ Add Nuget package [Analogy.AspNetCore.LogProvider](Analogy.AspNetCore.LogProvide
 
 ```csharp
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
-        {
-            loggerFactory.AddAnalogyLogger(new AnalogyLoggerConfiguration
-            {
-                LogLevel = LogLevel.Trace,
-                EventId = 0,
-                AnalogyServerUrl = "http://localhost:6000"
-            });
-        }
+ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+ {
+     loggerFactory.AddAnalogyLogger(new AnalogyLoggerConfiguration
+     {
+         LogLevel = LogLevel.Trace,
+         EventId = 0,
+         AnalogyServerUrl = "http://localhost:6000"
+      });
+     }
 
 ```
 
