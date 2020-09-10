@@ -29,45 +29,48 @@ namespace Analogy.AspNetCore.LogProvider
                 return;
             }
 
-
-            try
+            if (_config.EventId == 0 || _config.EventId == eventId.Id)
             {
-                AnalogyLogLevel level;
-                switch (logLevel)
+                try
                 {
-                    case LogLevel.Trace:
-                        level = AnalogyLogLevel.Trace;
-                        break;
-                    case LogLevel.Debug:
-                        level = AnalogyLogLevel.Debug;
+                    AnalogyLogLevel level;
+                    switch (logLevel)
+                    {
+                        case LogLevel.Trace:
+                            level = AnalogyLogLevel.Trace;
+                            break;
+                        case LogLevel.Debug:
+                            level = AnalogyLogLevel.Debug;
 
-                        break;
-                    case LogLevel.Information:
-                        level = AnalogyLogLevel.Event;
+                            break;
+                        case LogLevel.Information:
+                            level = AnalogyLogLevel.Event;
 
-                        break;
-                    case LogLevel.Warning:
-                        level = AnalogyLogLevel.Warning;
-                        break;
-                    case LogLevel.Error:
-                        level = AnalogyLogLevel.Error;
-                        break;
-                    case LogLevel.Critical:
-                        level = AnalogyLogLevel.Critical;
-                        break;
-                    case LogLevel.None:
-                        level = AnalogyLogLevel.Disabled;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
+                            break;
+                        case LogLevel.Warning:
+                            level = AnalogyLogLevel.Warning;
+                            break;
+                        case LogLevel.Error:
+                            level = AnalogyLogLevel.Error;
+                            break;
+                        case LogLevel.Critical:
+                            level = AnalogyLogLevel.Critical;
+                            break;
+                        case LogLevel.None:
+                            level = AnalogyLogLevel.Disabled;
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
+                    }
+
+                    string text = formatter(state, exception);
+                    logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
                 }
-                string text = formatter(state, exception);
-                logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                gRPCEnabled = false;
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    gRPCEnabled = false;
+                }
             }
         }
 
