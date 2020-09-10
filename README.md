@@ -15,3 +15,24 @@
 </p>
 
 Custom logging provider in Asp.Net Core that write logs to Analogy Log Server
+
+
+
+## Usage
+
+Add Nuget package [Analogy.AspNetCore.LogProvider](Analogy.AspNetCore.LogProvider) and then add to the Configure method the following in te Startup.cs
+
+```csharp
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddAnalogyLogger(new AnalogyLoggerConfiguration
+            {
+                LogLevel = LogLevel.Trace,
+                EventId = 0,
+                AnalogyServerUrl = "http://localhost:6000"
+            });
+        }
+
+```
+
