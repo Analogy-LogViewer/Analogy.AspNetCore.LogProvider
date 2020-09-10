@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analogy.AspNetCore.LogProvider", "Analogy.AspNetCore.LogProvider\Analogy.AspNetCore.LogProvider.csproj", "{8C76D06C-0C2C-4C38-BCC8-E1BEE975581D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Analogy.AspNetCore.LogProvider", "Analogy.AspNetCore.LogProvider\Analogy.AspNetCore.LogProvider.csproj", "{8C76D06C-0C2C-4C38-BCC8-E1BEE975581D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Analogy.AspNetCore.LogProvider.Tests", "Analogy.AspNetCore.LogProvider.Tests\Analogy.AspNetCore.LogProvider.Tests.csproj", "{F70D061A-AA8A-411E-B80C-5121B8FA7EDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8C76D06C-0C2C-4C38-BCC8-E1BEE975581D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C76D06C-0C2C-4C38-BCC8-E1BEE975581D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C76D06C-0C2C-4C38-BCC8-E1BEE975581D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70D061A-AA8A-411E-B80C-5121B8FA7EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70D061A-AA8A-411E-B80C-5121B8FA7EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70D061A-AA8A-411E-B80C-5121B8FA7EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70D061A-AA8A-411E-B80C-5121B8FA7EDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
