@@ -13,7 +13,7 @@ namespace Analogy.AspNetCore.LogProvider
         private readonly AnalogyLoggerConfiguration _config;
         private readonly AnalogyMessageProducer logSender;
         private bool gRPCEnabled = true;
-        
+
         public AnalogyLogger(string name, AnalogyLoggerConfiguration config, AnalogyMessageProducer producer)
         {
             _name = name;
@@ -24,54 +24,53 @@ namespace Analogy.AspNetCore.LogProvider
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
             Func<TState, Exception, string> formatter)
         {
-            if (gRPCEnabled  && !IsEnabled(logLevel))
+            if (gRPCEnabled && !IsEnabled(logLevel))
             {
                 return;
             }
 
-            if (_config.EventId == 0 || _config.EventId == eventId.Id)
+
+            try
             {
-                try
+                AnalogyLogLevel level;
+                switch (logLevel)
                 {
-                    AnalogyLogLevel level;
-                    switch (logLevel)
-                    {
-                        case LogLevel.Trace:
-                            level = AnalogyLogLevel.Trace;
-                            break;
-                        case LogLevel.Debug:
-                            level = AnalogyLogLevel.Debug;
+                    case LogLevel.Trace:
+                        level = AnalogyLogLevel.Trace;
+                        break;
+                    case LogLevel.Debug:
+                        level = AnalogyLogLevel.Debug;
 
-                            break;
-                        case LogLevel.Information:
-                            level = AnalogyLogLevel.Event;
+                        break;
+                    case LogLevel.Information:
+                        level = AnalogyLogLevel.Event;
 
-                            break;
-                        case LogLevel.Warning:
-                            level = AnalogyLogLevel.Warning;
-                            break;
-                        case LogLevel.Error:
-                            level = AnalogyLogLevel.Error;
-                            break;
-                        case LogLevel.Critical:
-                            level = AnalogyLogLevel.Critical;
-                            break;
-                        case LogLevel.None:
-                            level = AnalogyLogLevel.Disabled;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
-                    }
-                    string text = formatter(state, exception);
-                    logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
+                        break;
+                    case LogLevel.Warning:
+                        level = AnalogyLogLevel.Warning;
+                        break;
+                    case LogLevel.Error:
+                        level = AnalogyLogLevel.Error;
+                        break;
+                    case LogLevel.Critical:
+                        level = AnalogyLogLevel.Critical;
+                        break;
+                    case LogLevel.None:
+                        level = AnalogyLogLevel.Disabled;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    gRPCEnabled = false;
-                }
+                string text = formatter(state, exception);
+                logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                gRPCEnabled = false;
             }
         }
+
 
         public bool IsEnabled(LogLevel logLevel)
         {
