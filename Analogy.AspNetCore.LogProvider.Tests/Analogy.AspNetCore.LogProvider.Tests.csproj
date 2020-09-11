@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Analogy.AspNetCore.LogProvider" Version="0.1.0" />
+    <PackageReference Include="Analogy.AspNetCore.LogProvider" Version="0.1.2" />
     <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.4.8" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
