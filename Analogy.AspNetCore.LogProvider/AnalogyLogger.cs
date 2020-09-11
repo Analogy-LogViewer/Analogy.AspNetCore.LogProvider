@@ -13,7 +13,7 @@ namespace Analogy.AspNetCore.LogProvider
         private readonly AnalogyLoggerConfiguration _config;
         private readonly AnalogyMessageProducer logSender;
         private bool gRPCEnabled = true;
-        
+
         public AnalogyLogger(string name, AnalogyLoggerConfiguration config, AnalogyMessageProducer producer)
         {
             _name = name;
@@ -24,7 +24,7 @@ namespace Analogy.AspNetCore.LogProvider
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
             Func<TState, Exception, string> formatter)
         {
-            if (gRPCEnabled  && !IsEnabled(logLevel))
+            if (gRPCEnabled && !IsEnabled(logLevel))
             {
                 return;
             }
@@ -62,6 +62,7 @@ namespace Analogy.AspNetCore.LogProvider
                         default:
                             throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
                     }
+
                     string text = formatter(state, exception);
                     logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
                 }
@@ -72,6 +73,7 @@ namespace Analogy.AspNetCore.LogProvider
                 }
             }
         }
+
 
         public bool IsEnabled(LogLevel logLevel)
         {

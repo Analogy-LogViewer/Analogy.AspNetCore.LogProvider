@@ -5,22 +5,16 @@ namespace Analogy.AspNetCore.LogProvider
 {
     public class AnalogyLoggerConfiguration
     {
+
+        public string AnalogyServerUrl { get; set; }
         public LogLevel LogLevel { get; set; }
         public int EventId { get; set; }
-        public string AnalogyServerUrl { get; set; }
 
-        public AnalogyLoggerConfiguration()
+        public AnalogyLoggerConfiguration(LogLevel minimumLogLevel = LogLevel.Trace, int eventId = 0, string analogyServerUrl = "http://localhost:6000")
         {
-            LogLevel = LogLevel.Trace;
-            EventId = 0;
-            AnalogyServerUrl = "http://localhost:6000";
-        }
-
-        public AnalogyLoggerConfiguration(LogLevel logLevel, int eventId, string analogyServerUrl)
-        {
-            AnalogyServerUrl = analogyServerUrl;
-            LogLevel = logLevel;
+            LogLevel = minimumLogLevel;
             EventId = eventId;
+            AnalogyServerUrl = analogyServerUrl;
         }
     }
 }
