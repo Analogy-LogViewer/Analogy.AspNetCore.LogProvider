@@ -44,7 +44,7 @@ namespace Analogy.AspNetCore.LogProvider
 
                             break;
                         case LogLevel.Information:
-                            level = AnalogyLogLevel.Event;
+                            level = AnalogyLogLevel.Information;
 
                             break;
                         case LogLevel.Warning:
@@ -57,7 +57,7 @@ namespace Analogy.AspNetCore.LogProvider
                             level = AnalogyLogLevel.Critical;
                             break;
                         case LogLevel.None:
-                            level = AnalogyLogLevel.Disabled;
+                            level = AnalogyLogLevel.None;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
