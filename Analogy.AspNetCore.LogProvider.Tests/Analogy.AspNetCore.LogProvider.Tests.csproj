@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Analogy.AspNetCore.LogProvider" Version="0.2.0" />
-    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.4.8" />
+    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.6.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
