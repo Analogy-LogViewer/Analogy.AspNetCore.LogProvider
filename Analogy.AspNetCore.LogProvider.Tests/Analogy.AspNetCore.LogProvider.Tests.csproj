@@ -13,8 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Analogy.AspNetCore.LogProvider" Version="0.2.0" />
-    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.6.0" />
+    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.6.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
@@ -23,6 +22,10 @@
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.7" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.0" />
     <PackageReference Include="Grpc.Core" Version="2.31.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Analogy.AspNetCore.LogProvider\Analogy.AspNetCore.LogProvider.csproj" />
   </ItemGroup>
 
 </Project>
