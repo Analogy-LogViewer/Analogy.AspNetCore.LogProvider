@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Analogy.Interfaces;
+using Analogy.LogServer;
 using Analogy.LogServer.Clients;
 using Microsoft.Extensions.Logging;
 
@@ -33,31 +34,31 @@ namespace Analogy.AspNetCore.LogProvider
             {
                 try
                 {
-                    AnalogyLogLevel level;
+                    AnalogyGRPCLogLevel level;
                     switch (logLevel)
                     {
                         case LogLevel.Trace:
-                            level = AnalogyLogLevel.Trace;
+                            level = AnalogyGRPCLogLevel.Trace;
                             break;
                         case LogLevel.Debug:
-                            level = AnalogyLogLevel.Debug;
+                            level = AnalogyGRPCLogLevel.Debug;
 
                             break;
                         case LogLevel.Information:
-                            level = AnalogyLogLevel.Information;
+                            level = AnalogyGRPCLogLevel.Information;
 
                             break;
                         case LogLevel.Warning:
-                            level = AnalogyLogLevel.Warning;
+                            level = AnalogyGRPCLogLevel.Warning;
                             break;
                         case LogLevel.Error:
-                            level = AnalogyLogLevel.Error;
+                            level = AnalogyGRPCLogLevel.Error;
                             break;
                         case LogLevel.Critical:
-                            level = AnalogyLogLevel.Critical;
+                            level = AnalogyGRPCLogLevel.Critical;
                             break;
                         case LogLevel.None:
-                            level = AnalogyLogLevel.None;
+                            level = AnalogyGRPCLogLevel.None;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
