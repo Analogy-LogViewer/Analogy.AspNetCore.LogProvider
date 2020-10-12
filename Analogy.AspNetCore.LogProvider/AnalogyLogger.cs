@@ -34,31 +34,31 @@ namespace Analogy.AspNetCore.LogProvider
             {
                 try
                 {
-                    AnalogyGRPCLogLevel level;
+                    AnalogyLogLevel level;
                     switch (logLevel)
                     {
                         case LogLevel.Trace:
-                            level = AnalogyGRPCLogLevel.Trace;
+                            level = AnalogyLogLevel.Trace;
                             break;
                         case LogLevel.Debug:
-                            level = AnalogyGRPCLogLevel.Debug;
+                            level = AnalogyLogLevel.Debug;
 
                             break;
                         case LogLevel.Information:
-                            level = AnalogyGRPCLogLevel.Information;
+                            level = AnalogyLogLevel.Information;
 
                             break;
                         case LogLevel.Warning:
-                            level = AnalogyGRPCLogLevel.Warning;
+                            level = AnalogyLogLevel.Warning;
                             break;
                         case LogLevel.Error:
-                            level = AnalogyGRPCLogLevel.Error;
+                            level = AnalogyLogLevel.Error;
                             break;
                         case LogLevel.Critical:
-                            level = AnalogyGRPCLogLevel.Critical;
+                            level = AnalogyLogLevel.Critical;
                             break;
                         case LogLevel.None:
-                            level = AnalogyGRPCLogLevel.None;
+                            level = AnalogyLogLevel.None;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null);
