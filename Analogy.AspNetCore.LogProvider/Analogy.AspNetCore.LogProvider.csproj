@@ -9,25 +9,27 @@
 	  <Description>Custom logging provider in Asp.Net Core that write logs to Analogy Log Server</Description>
 	  <Copyright>Lior Banai @ 2020</Copyright>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Version>0.4.8</Version>
+	  <Version>0.4.9</Version>
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
 	  <IncludeSymbols>true</IncludeSymbols>
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+	  <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	  <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.AspNetCore.LogProvider</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.AspNetCore.LogProvider</PackageProjectUrl>
 	  <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogServer.Clients" Version="0.4.8" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.8.1.1" />
+		<PackageReference Include="Analogy.LogServer.Clients" Version="0.4.10" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.8.2.5" />
 		<PackageReference Include="Google.Protobuf" Version="3.14.0" />
 		<PackageReference Include="Grpc.Net.Client" Version="2.33.1" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.9" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.10" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
