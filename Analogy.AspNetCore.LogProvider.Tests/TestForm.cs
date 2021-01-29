@@ -1,11 +1,11 @@
 ﻿using Analogy.Interfaces;
 using Analogy.LogServer.Clients;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Extensions.Logging;
-
+#if NETCOREAPP3_1
 namespace Analogy.LogServer.Tests
 {
     public partial class TestForm : Form
@@ -31,7 +31,7 @@ namespace Analogy.LogServer.Tests
 
             producing = true;
             btnProducer.Enabled = false;
-            var p = new AnalogyMessageProducer($"http://{txtIP.Text}:6000", null);
+            var p = new AnalogyMessageProducer($"http://{txtIP.Text}:6000");
             var ai = new Dictionary<string, string> { { "some key", "some value" } };
             for (int i = 0; i < 100000; i++)
             {
@@ -61,3 +61,4 @@ namespace Analogy.LogServer.Tests
         }
     }
 }
+#endif

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Text;
-using Analogy.LogServer.Clients;
+﻿using Analogy.LogServer.Clients;
 using Microsoft.Extensions.Logging;
+using System.Collections.Concurrent;
 
 namespace Analogy.AspNetCore.LogProvider
 {
-    public class AnalogyLoggerProvider: ILoggerProvider
+    public class AnalogyLoggerProvider : ILoggerProvider
     {
         private readonly AnalogyLoggerConfiguration _config;
         private readonly ConcurrentDictionary<string, AnalogyLogger> _loggers = new ConcurrentDictionary<string, AnalogyLogger>();
@@ -23,8 +20,8 @@ namespace Analogy.AspNetCore.LogProvider
 
         public ILogger CreateLogger(string categoryName)
         {
-            var producer=_gRPCSenders.GetOrAdd(_config.AnalogyServerUrl, url => new AnalogyMessageProducer(url, null));
-            return _loggers.GetOrAdd(categoryName, name => new AnalogyLogger(name, _config,producer));
+            var producer = _gRPCSenders.GetOrAdd(_config.AnalogyServerUrl, url => new AnalogyMessageProducer(url));
+            return _loggers.GetOrAdd(categoryName, name => new AnalogyLogger(name, _config, producer));
         }
     }
 }
