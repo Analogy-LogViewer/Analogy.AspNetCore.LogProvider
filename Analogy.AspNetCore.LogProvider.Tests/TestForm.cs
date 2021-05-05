@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-#if NETCOREAPP3_1
+#if NETCOREAPP3_1 || NET
 namespace Analogy.LogServer.Tests
 {
     public partial class TestForm : Form
