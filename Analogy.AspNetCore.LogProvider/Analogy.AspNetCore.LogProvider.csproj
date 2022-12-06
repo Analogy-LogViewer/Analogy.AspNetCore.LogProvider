@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0-windows;net6.0-windows</TargetFrameworks>
+	<TargetFrameworks>net7.0-windows;net6.0-windows;net48;net471</TargetFrameworks>
 	  <OutputType>Library</OutputType>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Authors>Lior Banai</Authors>
@@ -9,7 +9,7 @@
 	  <Description>Custom logging provider in Asp.Net Core that write logs to Analogy Log Server</Description>
 	  <Copyright>Lior Banai @ 2020-2022</Copyright>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Version>1.0.0</Version>
+	  <Version>1.1.0</Version>
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
 	  <IncludeSymbols>true</IncludeSymbols>
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -37,8 +37,8 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="..\Assets\icon.png">
-	    <Pack>True</Pack>
-	    <PackagePath></PackagePath>
+		<Pack>True</Pack>
+		<PackagePath></PackagePath>
 	  </None>
 	</ItemGroup>
 </Project>
