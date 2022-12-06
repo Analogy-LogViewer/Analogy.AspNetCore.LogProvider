@@ -1,4 +1,5 @@
-﻿using Analogy.LogServer.Clients;
+﻿using System;
+using Analogy.LogServer.Clients;
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 
@@ -16,6 +17,18 @@ namespace Analogy.AspNetCore.LogProvider
         public void Dispose()
         {
             _loggers.Clear();
+            foreach (var producer in _gRPCSenders)
+            {
+                try
+                {
+                    producer.Value.StopReceiving();
+                    producer.Value.Dispose();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
         }
 
         public ILogger CreateLogger(string categoryName)
