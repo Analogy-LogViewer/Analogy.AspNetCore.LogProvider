@@ -14,6 +14,11 @@ namespace Analogy.AspNetCore.LogProvider
         {
             _config = config;
         }
+
+        public AnalogyLoggerProvider(string analogyServerUrl, Microsoft.Extensions.Logging.LogLevel minimumLogLevel = Microsoft.Extensions.Logging.LogLevel.Trace, int eventId = 0)
+        {
+            _config = new AnalogyLoggerConfiguration(minimumLogLevel, eventId, analogyServerUrl);
+        }
         public void Dispose()
         {
             _loggers.Clear();
@@ -31,7 +36,7 @@ namespace Analogy.AspNetCore.LogProvider
             }
         }
 
-        public ILogger CreateLogger(string categoryName)
+        public Microsoft.Extensions.Logging.ILogger CreateLogger(string categoryName)
         {
             var producer = _gRPCSenders.GetOrAdd(_config.AnalogyServerUrl, url => new AnalogyMessageProducer(url));
             return _loggers.GetOrAdd(categoryName, name => new AnalogyLogger(name, _config, producer));
