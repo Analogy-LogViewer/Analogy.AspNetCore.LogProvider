@@ -9,7 +9,7 @@
 	  <Description>Custom logging provider in Asp.Net Core that write logs to Analogy Log Server</Description>
 	  <Copyright>Lior Banai @ 2020-2023</Copyright>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <VersionPrefix>5.0.1.1</VersionPrefix>
+	  <VersionPrefix>5.0.1.2</VersionPrefix>
 	  <VersionSuffix></VersionSuffix>
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
 	  <IncludeSymbols>true</IncludeSymbols>
@@ -24,7 +24,7 @@
 	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogServer.Clients" Version="5.0.1" />
+		<PackageReference Include="Analogy.LogServer.Clients" Version="5.0.1.1" />
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="5.0.1" />
 		<PackageReference Include="Google.Protobuf" Version="3.24.2" />
 		<PackageReference Include="Grpc.Net.Client" Version="2.56.0" />
