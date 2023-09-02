@@ -23,17 +23,23 @@ namespace Analogy.LogServer.Tests
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging(builder =>
+            {
+                var analogyLoggerProvider = new AnalogyLoggerProvider($"http://localhost:{50222}");
+                builder.AddProvider(analogyLoggerProvider);
+                
+            });
 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddAnalogyLogger(new AnalogyLoggerConfiguration
-            {
-                LogLevel = LogLevel.Trace,
-                EventId = 0,
-                AnalogyServerUrl = "http://localhost:6000"
-            });
+            //loggerFactory.AddAnalogyLogger(new AnalogyLoggerConfiguration
+            //{
+            //    LogLevel = LogLevel.Trace,
+            //    EventId = 0,
+            //    AnalogyServerUrl = "http://localhost:50222"
+            //});
         }
     }
 }

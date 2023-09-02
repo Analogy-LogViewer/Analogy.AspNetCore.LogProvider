@@ -28,52 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProducer = new System.Windows.Forms.Button();
-            this.txtIP = new System.Windows.Forms.TextBox();
-            this.btnProducerLogger = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            btnProducer = new System.Windows.Forms.Button();
+            txtIP = new System.Windows.Forms.TextBox();
+            btnProducerLogger = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // btnProducer
             // 
-            this.btnProducer.Location = new System.Drawing.Point(15, 12);
-            this.btnProducer.Name = "btnProducer";
-            this.btnProducer.Size = new System.Drawing.Size(166, 54);
-            this.btnProducer.TabIndex = 0;
-            this.btnProducer.Text = "Produce Messages";
-            this.btnProducer.UseVisualStyleBackColor = true;
-            this.btnProducer.Click += new System.EventHandler(this.btnProducer_Click);
+            btnProducer.Location = new System.Drawing.Point(15, 12);
+            btnProducer.Name = "btnProducer";
+            btnProducer.Size = new System.Drawing.Size(166, 54);
+            btnProducer.TabIndex = 0;
+            btnProducer.Text = "Produce Messages";
+            btnProducer.UseVisualStyleBackColor = true;
+            btnProducer.Click += btnProducer_Click;
             // 
             // txtIP
             // 
-            this.txtIP.Location = new System.Drawing.Point(199, 22);
-            this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(368, 27);
-            this.txtIP.TabIndex = 1;
-            this.txtIP.Text = "localhost";
+            txtIP.Location = new System.Drawing.Point(199, 22);
+            txtIP.Name = "txtIP";
+            txtIP.Size = new System.Drawing.Size(368, 27);
+            txtIP.TabIndex = 1;
+            txtIP.Text = "localhost:50222";
             // 
             // btnProducerLogger
             // 
-            this.btnProducerLogger.Location = new System.Drawing.Point(15, 72);
-            this.btnProducerLogger.Name = "btnProducerLogger";
-            this.btnProducerLogger.Size = new System.Drawing.Size(166, 54);
-            this.btnProducerLogger.TabIndex = 0;
-            this.btnProducerLogger.Text = "Produce Messages Via Logger";
-            this.btnProducerLogger.UseVisualStyleBackColor = true;
-            this.btnProducerLogger.Click += new System.EventHandler(this.btnProducerViaLogger_Click);
+            btnProducerLogger.Location = new System.Drawing.Point(15, 72);
+            btnProducerLogger.Name = "btnProducerLogger";
+            btnProducerLogger.Size = new System.Drawing.Size(166, 54);
+            btnProducerLogger.TabIndex = 0;
+            btnProducerLogger.Text = "Produce Messages Via Logger";
+            btnProducerLogger.UseVisualStyleBackColor = true;
+            btnProducerLogger.Click += btnProducerViaLogger_Click;
             // 
             // TestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 163);
-            this.Controls.Add(this.btnProducerLogger);
-            this.Controls.Add(this.txtIP);
-            this.Controls.Add(this.btnProducer);
-            this.Name = "TestForm";
-            this.Text = "Analogy Log Server Message producer Example";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(585, 163);
+            Controls.Add(btnProducerLogger);
+            Controls.Add(txtIP);
+            Controls.Add(btnProducer);
+            Name = "TestForm";
+            Text = "Analogy Log Server Message producer Example";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
