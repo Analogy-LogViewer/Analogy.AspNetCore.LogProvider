@@ -1,11 +1,9 @@
-﻿using System;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Analogy.AspNetCore.LogProvider
 {
     public class AnalogyLoggerConfiguration
     {
-
         public string AnalogyServerUrl { get; set; }
         public LogLevel LogLevel { get; set; }
         public int EventId { get; set; }

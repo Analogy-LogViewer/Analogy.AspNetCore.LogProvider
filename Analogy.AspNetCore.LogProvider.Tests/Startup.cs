@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Analogy.AspNetCore.LogProvider;
+﻿using Analogy.AspNetCore.LogProvider;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Analogy.LogServer.Tests
 {
@@ -27,9 +27,7 @@ namespace Analogy.LogServer.Tests
             {
                 var analogyLoggerProvider = new AnalogyLoggerProvider($"http://localhost:{50222}");
                 builder.AddProvider(analogyLoggerProvider);
-                
             });
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)

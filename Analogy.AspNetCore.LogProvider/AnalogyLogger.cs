@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Analogy.Interfaces;
-using Analogy.LogServer;
+﻿using Analogy.Interfaces;
 using Analogy.LogServer.Clients;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Analogy.AspNetCore.LogProvider
 {
@@ -65,7 +62,7 @@ namespace Analogy.AspNetCore.LogProvider
                     }
 
                     string text = formatter(state, exception);
-                    logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
+                    _ = logSender.Log(text, _name, level, "", Environment.MachineName, Environment.UserName);
                 }
                 catch (Exception e)
                 {
@@ -74,7 +71,6 @@ namespace Analogy.AspNetCore.LogProvider
                 }
             }
         }
-
 
         public bool IsEnabled(LogLevel logLevel)
         {

@@ -1,6 +1,6 @@
-﻿using System;
-using Analogy.LogServer.Clients;
+﻿using Analogy.LogServer.Clients;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Concurrent;
 
 namespace Analogy.AspNetCore.LogProvider

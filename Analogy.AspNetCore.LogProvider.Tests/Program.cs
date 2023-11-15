@@ -1,3 +1,15 @@
+using Grpc.Core;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,21 +19,9 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Grpc.Core;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 namespace Analogy.LogServer.Tests
 {
-    static class Program
+    public static class Program
     {
         private static CancellationTokenSource cts;
 
@@ -29,7 +29,7 @@ namespace Analogy.LogServer.Tests
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static async Task Main()
+        public static async Task Main()
         {
             cts = new CancellationTokenSource();
             var token = cts.Token;
@@ -68,6 +68,5 @@ namespace Analogy.LogServer.Tests
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-
     }
 }
