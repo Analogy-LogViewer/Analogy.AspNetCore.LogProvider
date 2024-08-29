@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>net8.0-windows;net7.0-windows;net6.0-windows;net48;net471</TargetFrameworks>
+	<TargetFrameworks>net8.0-windows;net6.0-windows;net48;net471</TargetFrameworks>
 	  <OutputType>Library</OutputType>
 	  <Authors>Lior Banai</Authors>
 	  <Company>Analogy.LogViewer</Company>
@@ -18,7 +18,7 @@
 		<PackageReference Include="Analogy.LogServer.Clients" Version="6.0.0" />
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="6.0.0.1" />
 		<PackageReference Include="Google.Protobuf" Version="3.28.0" />
-		<PackageReference Include="Grpc.Net.Client" Version="2.64.0" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.65.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="..\Assets\icon.png">
