@@ -50,9 +50,9 @@ jobs:
 
     # Publish Artifacts 
     - name: 'Publish Artifacts'   
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4.4.0
       with:
-       name: 'artifactory'
+       name: artifactory_${{ matrix.configuration }}
        path: ./Analogy.AspNetCore.LogProvider\bin/${{ matrix.configuration }}
         
   push-nuget:
@@ -62,9 +62,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 'Download Artifact'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
-          name: 'artifactory'
+          name: artifactory_Release
       - name: 'Dotnet NuGet Push'
         run: |
           Get-ChildItem .\artifactory -Filter *.nupkg |
@@ -74,16 +74,6 @@ jobs:
 
       - name: Setup NuGet.exe for use with actions
         uses: NuGet/setup-nuget@v1.0.5
-
-      - name: Add private GitHub registry to NuGet
-        run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/Analogy-LogViewer/index.json -Username Analogy-LogViewer -Password ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 'Dotnet NuGet Push to github registry'     
-        run: |
-          Get-ChildItem .\artifactory -Filter *.nupkg |
-          Where-Object { !$_.Name.Contains('preview') } |
-          ForEach-Object { nuget push $_  -Source "GPR" -SkipDuplicate }
-
 concurrency: 
   group: ${{ github.ref }}
   cancel-in-progress: true
