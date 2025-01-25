@@ -8,7 +8,7 @@
 	  <Description>Custom logging provider in Asp.Net Core that write logs to Analogy Log Server</Description>
 	  <Copyright>Lior Banai 2020-2025</Copyright>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <VersionPrefix>8.0.0.0</VersionPrefix>
+	  <VersionPrefix>8.0.1.0</VersionPrefix>
 	  <VersionSuffix></VersionSuffix>
 	  <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.AspNetCore.LogProvider</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.AspNetCore.LogProvider</PackageProjectUrl>
@@ -16,7 +16,7 @@
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Analogy.Interfaces.DataTypes" Version="2.0.0" />
-		<PackageReference Include="Analogy.LogServer.Clients" Version="8.0.0" />
+		<PackageReference Include="Analogy.LogServer.Clients" Version="8.0.1" />
 		<PackageReference Include="Google.Protobuf" Version="3.29.3" />
 		<PackageReference Include="Grpc.Net.Client" Version="2.67.0" />
 	</ItemGroup>
