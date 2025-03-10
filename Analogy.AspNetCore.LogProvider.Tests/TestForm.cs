@@ -34,7 +34,10 @@ namespace Analogy.LogServer.Tests
             var ai = new Dictionary<string, string> { { "some key", "some value" } };
             for (int i = 0; i < 100000; i++)
             {
-                await p.Log(text: "test " + i, source: "none", additionalInformation: ai, level: AnalogyLogLevel.Information).ConfigureAwait(false);
+                foreach (AnalogyLogLevel level in Enum.GetValues(typeof(AnalogyLogLevel)))
+                {
+                    await p.Log(text: "test " + i, source: "none", additionalInformation: ai, level: level).ConfigureAwait(false);
+                }
                 await Task.Delay(500).ConfigureAwait(false);
             }
 
