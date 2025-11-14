@@ -1,4 +1,5 @@
 ﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Analogy.LogServer.Clients;
 using Microsoft.Extensions.Logging;
 using System;
