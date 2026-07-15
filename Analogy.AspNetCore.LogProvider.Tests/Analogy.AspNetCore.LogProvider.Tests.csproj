@@ -13,7 +13,7 @@
 	<ItemGroup>
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="9.0.6" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
-		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.9" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.10" />
 		<PackageReference Include="NLog.Web.AspNetCore" Version="6.1.4" />
 	</ItemGroup>
 
